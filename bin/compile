@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
 # bin/compile <build-dir> <cache-dir>
 
-echo "-----> Nothing to do."
+echo "-----> Installing ffmpeg..."
+add-apt-repository -y ppa:mc3man/trusty-media
+apt-get update
+apt-get -y install ffmpeg
+
