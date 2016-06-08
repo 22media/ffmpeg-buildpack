@@ -27,6 +27,7 @@ else
     curl -o $cache_dir/$ffmpeg_download_file $ffmpeg_download_url 
 fi
 
+mkdir ffmpeg-build && cd ffmpeg-build
 tar xf $cache_dir/$ffmpeg_download_file
 
 mkdir $build_ffmpeg_dir
