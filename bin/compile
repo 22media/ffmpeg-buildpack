@@ -2,8 +2,8 @@
 # bin/compile <build-dir> <cache-dir>
 
 # constants
-FFMPEG_DOWNLOAD_FILE=ffmpeg-git-64bit-static.tar.xz
-FFMPEG_DOWNLOAD_URL=http://johnvansickle.com/ffmpeg/builds/${FFMPEG_DOWNLOAD_FILE}
+ffmpeg_download_file=ffmpeg-git-64bit-static.tar.xz
+ffmpeg_download_url=http://johnvansickle.com/ffmpeg/builds/${ffmpeg_download_file}
 
 # fail hard
 set -o pipefail
@@ -18,15 +18,18 @@ cache_dir=$2/ffmpeg
 build_ffmpeg_dir=${build_dir}/ffmpeg
 
 echo "-----> Installing ffmpeg..."
-if ls ${cache_dir}/${FFMPEG_DOWNLOAD_FILE} &>/dev/null
+if ls ${cache_dir}/${ffmpeg_download_file} &>/dev/null
 then
-    echo "Using cached ffmpeg at ${cache_dir}/${FFMPEG_DOWNLOAD_FILE}..."
+    echo "Using cached ffmpeg at ${cache_dir}/${ffmpeg_download_file}..."
 else
     echo "Downloading ffmpeg..."
     mkdir -p $cache_dir && cd $cache_dir
-    curl -o $cache_dir/$FFMPEG_DOWNLOAD_FILE $FFMPEG_DOWNLOAD_URL 
+    curl -o $cache_dir/$ffmpeg_download_file $ffmpeg_download_url 
 fi
 
-tar xf $cache_dir/$FFMPEG_DOWNLOAD_FILE
+tar xf $cache_dir/$ffmpeg_download_file
+
+mkdir $build_ffmpeg_dir
 mv ffmpeg-git-20160608-64bit-static/* $build_ffmpeg_dir
+
 ls -laH $build_ffmpeg_dir
