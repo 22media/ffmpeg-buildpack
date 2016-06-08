@@ -2,8 +2,6 @@
 # bin/compile <build-dir> <cache-dir>
 
 echo "-----> Installing ffmpeg..."
-sudo apt-get install software-properties-common
-sudo add-apt-repository -y ppa:mc3man/trusty-media
-sudo apt-get update
-sudo apt-get -y install ffmpeg
+curl --silent --location http://johnvansickle.com/ffmpeg/builds/ffmpeg-git-64bit-static.tar.xz | tar xz
+ls
 
