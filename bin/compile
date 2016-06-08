@@ -24,7 +24,7 @@ then
 else
     echo "Downloading ffmpeg..."
     mkdir -p $cache_dir && cd $cache_dir
-    curl -s -o $cache_dir $FFMPEG_DOWNLOAD_URL 
+    curl -o $cache_dir $FFMPEG_DOWNLOAD_URL 
 fi
 
 #mkdir ${build_ffmpeg_dir}
