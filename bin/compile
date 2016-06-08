@@ -23,9 +23,9 @@ then
     echo "Using cached ffmpeg at ${cache_dir}/${FFMPEG_DOWNLOAD_FILE}..."
 else
     echo "Downloading ffmpeg..."
-    echo "curl –-silent –o ${cache_dir}/${FFMPEG_DOWNLOAD_FILE} ${FFMPEG_DOWNLOAD_URL}"
+    curl –-silent –o ${cache_dir}/${FFMPEG_DOWNLOAD_FILE} ${FFMPEG_DOWNLOAD_URL}
 fi
 
 mkdir ${build_ffmpeg_dir}
-tar xf ${cache_dir}/${FFMPEG_DOWNLOAD_FILE} /ffmpeg-git-20160608-64bit-static/ -c ${build_ffmpeg_dir}
+echo "tar xf ${cache_dir}/${FFMPEG_DOWNLOAD_FILE} /ffmpeg-git-20160608-64bit-static/ -c ${build_ffmpeg_dir}"
 ls -laH ${build_ffmpeg_dir}
