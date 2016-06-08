@@ -28,5 +28,5 @@ else
 fi
 
 mkdir $build_ffmpeg_dir
-tar xf $cache_dir/$FFMPEG_DOWNLOAD_FILE -c $build_ffmpeg_dir
+tar xf $cache_dir/$FFMPEG_DOWNLOAD_FILE -C $build_ffmpeg_dir
 ls -laH $build_ffmpeg_dir
