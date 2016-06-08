@@ -2,6 +2,6 @@
 # bin/compile <build-dir> <cache-dir>
 
 echo "-----> Installing ffmpeg..."
-curl --silent --location http://johnvansickle.com/ffmpeg/builds/ffmpeg-git-64bit-static.tar.xz | tar xz
+curl --silent --location http://johnvansickle.com/ffmpeg/builds/ffmpeg-git-64bit-static.tar.xz | tar xf
 ls
 
