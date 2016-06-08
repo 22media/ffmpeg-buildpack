@@ -27,6 +27,6 @@ else
     curl -o $cache_dir/$FFMPEG_DOWNLOAD_FILE $FFMPEG_DOWNLOAD_URL 
 fi
 
-#mkdir ${build_ffmpeg_dir}
-#echo "tar xf ${cache_dir}/${FFMPEG_DOWNLOAD_FILE} /ffmpeg-git-20160608-64bit-static/ -c ${build_ffmpeg_dir}"
-ls -laH $cache_dir
+mkdir $build_ffmpeg_dir
+tar xf $cache_dir/$FFMPEG_DOWNLOAD_FILE -c $build_ffmpeg_dir
+ls -laH $build_ffmpeg_dir
