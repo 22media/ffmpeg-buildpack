@@ -30,6 +30,6 @@ fi
 tar xf $cache_dir/$ffmpeg_download_file
 
 mkdir $build_ffmpeg_dir
-mv ffmpeg-git-20160608-64bit-static/* $build_ffmpeg_dir
+mv `ls`/* $build_ffmpeg_dir
 
 ls -laH $build_ffmpeg_dir
