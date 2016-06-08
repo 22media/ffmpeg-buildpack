@@ -23,8 +23,8 @@ then
     echo "Using cached ffmpeg at ${cache_dir}/${FFMPEG_DOWNLOAD_FILE}..."
 else
     echo "Downloading ffmpeg..."
-    mkdir $cache_dir && cd $cache_dir
-    curl -s $FFMPEG_DOWNLOAD_URL
+    mkdir -p $cache_dir && cd $cache_dir
+    curl -s $FFMPEG_DOWNLOAD_URL -o $cache_dir
 fi
 
 #mkdir ${build_ffmpeg_dir}
