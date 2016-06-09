@@ -2,7 +2,7 @@
 # bin/compile <build-dir> <cache-dir>
 
 # constants
-FFMPEG_DOWNLOAD_URL=https://s3.amazonaws.com/static.josephprince.com/ffmpeg/ffmpeg
+FFMPEG_DOWNLOAD_URL=https://s3.amazonaws.com/static.josephprince.com/ffmpeg/ffmpeg.tar.gz
 
 # fail hard
 set -o pipefail
@@ -17,16 +17,16 @@ CACHE_DIR=$2/bin
 FFMPEG_DIR=${BUILD_DIR}/bin
 
 echo "-----> Installing ffmpeg..."
-if ls ${CACHE_DIR}/ffmpeg &>/dev/null
+if ls ${CACHE_DIR}/ffmpeg.tar.gz &>/dev/null
 then
-    echo "Using cached ffmpeg at ${CACHE_DIR}/ffmpeg..."
+    echo "Using cached ffmpeg at ${CACHE_DIR}/ffmpeg.tar.gz..."
 else
     echo "Downloading ffmpeg..."
     mkdir -p $CACHE_DIR && cd $CACHE_DIR
-    curl -o ffmpeg $FFMPEG_DOWNLOAD_URL 
+    curl --silent -o ffmpeg.tar.gz $FFMPEG_DOWNLOAD_URL 
 fi
 
 mkdir -p $FFMPEG_DIR
-mv ${CACHE_DIR}/ffmpeg $FFMPEG_DIR
+tar -zxvf ${CACHE_DIR}/ffmpeg.tar.gz -C $FFMPEG_DIR
 
 ls -laH $FFMPEG_DIR
