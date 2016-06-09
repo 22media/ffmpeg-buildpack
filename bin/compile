@@ -16,17 +16,17 @@ BUILD_DIR=$1
 CACHE_DIR=$2/bin
 FFMPEG_DIR=${BUILD_DIR}/bin
 
-echo "-----> Installing ffmpeg..."
 if ls ${CACHE_DIR}/ffmpeg.tar.gz &>/dev/null
 then
-    echo "Using cached ffmpeg at ${CACHE_DIR}/ffmpeg.tar.gz..."
+    echo "-----> Using cached ffmpeg at ${CACHE_DIR}/ffmpeg.tar.gz"
 else
-    echo "Downloading ffmpeg..."
+    echo "-----> Downloading ffmpeg from ${FFMPEG_DOWNLOAD_URL}..."
     mkdir -p $CACHE_DIR && cd $CACHE_DIR
     curl --silent -o ffmpeg.tar.gz $FFMPEG_DOWNLOAD_URL 
 fi
 
 mkdir -p $FFMPEG_DIR
-tar -zxvf ${CACHE_DIR}/ffmpeg.tar.gz -C $FFMPEG_DIR
+tar -zxf ${CACHE_DIR}/ffmpeg.tar.gz -C $FFMPEG_DIR
 
-ls -laH $FFMPEG_DIR
+# test run
+$FFMPEG_DIR/ffmpeg
