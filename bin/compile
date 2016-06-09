@@ -28,5 +28,4 @@ fi
 mkdir -p $FFMPEG_DIR
 tar -zxf ${CACHE_DIR}/ffmpeg.tar.gz -C $FFMPEG_DIR
 
-# test run
-$FFMPEG_DIR/ffmpeg
+ls -laH $FFMPEG_DIR
