@@ -28,4 +28,5 @@ fi
 mkdir -p $FFMPEG_DIR
 tar -zxf ${CACHE_DIR}/ffmpeg.tar.gz -C $FFMPEG_DIR
 
-ls -laH $FFMPEG_DIR
+mkdir -p $BUILD_DIR/.profile.d
+echo 'PATH=$PATH:$HOME/bin' > $BUILD_DIR/.profile.d/ffmpeg.sh
